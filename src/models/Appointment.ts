@@ -1,5 +1,5 @@
 import { Doctor } from "./Doctor";
-import { Patient } from "./patient";
+import { Patient } from "./Patient";
 
 export class Appointment{
     constructor(

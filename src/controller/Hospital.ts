@@ -1,6 +1,6 @@
 import { Appointment } from "../models/Appointment";
 import { Doctor } from "../models/Doctor";
-import { Patient } from "../models/patient";
+import { Patient } from "../models/Patient";
 import * as readLine from 'readline'
 
 export class Hospital{
@@ -51,9 +51,9 @@ export class Hospital{
     }
 
     addDoctor():void{
-        this.scanner.question("Write the Doctor's name ", (name) => {
-            this.scanner.question("Write the Doctor's speciality ", (speciality) => {
-                this.scanner.question("Write the Doctor's phone ", (phone) => {
+        this.scanner.question("Write the Doctor's name: ", (name) => {
+            this.scanner.question("Write the Doctor's speciality: ", (speciality) => {
+                this.scanner.question("Write the Doctor's phone: ", (phone) => {
                     const newDoctor = new Doctor(
                         this.doctor.length + 1,
                         name, 
@@ -69,11 +69,11 @@ export class Hospital{
     }
 
     addPatient():void{
-        this.scanner.question("Write the patient's name ", (name) => {
-            this.scanner.question("Write the patient's age ", (age) => {
-                this.scanner.question("Write the patient's address ", (address) => {
-                    this.scanner.question("Write the patient's phone ", (phone) => {
-                        this.scanner.question("Write the patient's dui ", (dui) => {
+        this.scanner.question("Write the patient's name: ", (name) => {
+            this.scanner.question("Write the patient's age: ", (age) => {
+                this.scanner.question("Write the patient's address: ", (address) => {
+                    this.scanner.question("Write the patient's phone: ", (phone) => {
+                        this.scanner.question("Write the patient's dui: ", (dui) => {
                             const newPatient = new Patient(
                                 this.patient.length + 1, 
                                 name,
@@ -93,19 +93,19 @@ export class Hospital{
     }
 
     addAppointment():void{
-        this.scanner.question("Write the Doctor's id ", (doctor) => {
+        this.scanner.question("Write the Doctor's id: ", (doctor) => {
             const findDoctorById = this.doctor.find(d => d.id === parseInt(doctor))
             if (!findDoctorById){
                 return
             }
-            this.scanner.question("Write the Patient's id ", (patient) => {
+            this.scanner.question("Write the Patient's id: ", (patient) => {
                 const findPatientById = this.patient.find(p => p.id === parseInt(patient))
                 if (!findPatientById){
                     return
                 }
-                this.scanner.question("Write the date of the appointment (DD-MM-YYYY) ", (date) => {
+                this.scanner.question("Write the date of the appointment (DD-MM-YYYY): ", (date) => {
                     const newDate = new Date(date)
-                    this.scanner.question('Write the reason of the appointment ', (reason) => {
+                    this.scanner.question('Write the reason of the appointment: ', (reason) => {
                         const newAppointment = new Appointment(
                             this.appointment.length + 1,
                             findPatientById,
